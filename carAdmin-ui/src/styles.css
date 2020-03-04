@@ -1,0 +1,21 @@
+.margin-table-bottom {
+    margin-bottom: 5px;
+}
+
+.skin-blue .main-header .navbar{
+    background-color: #1d4156;
+}
+
+.skin-blue .main-header .navbar .sidebar-toggle:hover {
+    background-color: #173344;
+}
+
+.skin-blue .main-header .logo{
+    background-color: #1d4156;
+}
+
+.skin-blue .main-header .logo:hover {
+    background-color: #173344;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

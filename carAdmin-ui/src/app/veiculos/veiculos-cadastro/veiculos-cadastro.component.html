@@ -1,0 +1,106 @@
+<section class="content-header">
+    <h1>
+        Cadastro de Veículos
+        <small>inserir Veículos</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+        <li>Cadastro</li>
+        <li class="active">Veículos</li>
+    </ol>
+</section>
+<form  autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formulario">
+
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-header">
+            <h3 class="box-title">Preencha os campos</h3>
+        </div>
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Marca:</label>
+                        <select  formControlName="marca" name="marca" class="form-control select2" style="width: 100%;">
+                            <option selected="selected">-- Selecione --</option>
+                            <option *ngFor="let marca of marcas" [value]="marcas.id">
+                                {{marca.descricao}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Modelo:</label>
+                        <input formControlName="modelo" name="modelo" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Placa:</label>
+                        <input formControlName="placa" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <label>Ano:</label>
+                        <input formControlName="ano" type="text" class="form-control" maxlength="4">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Cor:</label>
+                        <select formControlName="cor" class="form-control select2" style="width: 100%;">
+                            <option selected="selected">-- Selecione --</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Chassi:</label>
+                        <input formControlName="chassi" type="text" class="form-control" maxlength="17">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Tipo:</label>
+                        <select  formControlName="tipo" class="form-control select2" style="width: 100%;">
+                            <option selected="selected">-- Selecione --</option>
+                            <option *ngFor="let tipo of tipos" [value]="tipo.id">
+                                {{tipo.descricao}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Categoria:</label>
+                        <select name="categoria" formGroupName="categoria" class="form-control select2" style="width: 100%;">
+                            <option selected="selected">-- Selecione --</option>
+                            <option *ngFor="let cat of categorias" [ngValue]="cat">
+                                {{cat.descricao}}
+                            </option>
+                          </select>
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+                <button routerLink="/veiculos" type="submit" class="btn btn-danger">Cancelar</button>
+                <button type="submit" class="btn btn-info pull-right">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+    <div class="box box-warning">
+        <div class="box-header">
+            <h3 class="box-title">Histórico de Despesas</h3>
+        </div>
+        <div class="box-body">
+            <div class="row">
+            </div>
+        </div>
+    </div>
+</section>
+</form>

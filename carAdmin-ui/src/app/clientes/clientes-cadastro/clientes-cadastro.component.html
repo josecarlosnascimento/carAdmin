@@ -1,0 +1,107 @@
+<section class="content-header">
+    <h1>
+        Cadastro de Clientes
+        <small>inserir clientes</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+        <li>Cadastro</li>
+        <li class="active">Clientes</li>
+    </ol>
+</section>
+<form  autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formulario" enctype="multipart/form-data">
+<section class="content">
+        <div class="box box-primary">
+            <div class="box-header">
+                <h3 class="box-title">Preencha os campos</h3>
+            </div>
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label>Nome:</label>
+                            <input formControlName="nome" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>CPF:</label>
+                            <input formControlName="cpf" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>Nascimento:</label>
+                            <input formControlName="dataNascimento" type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>E-Mail:</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Telefone:</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>CEP:</label>
+                            <input formControlName="cep" type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Logradouro:</label>
+                            <input formControlName="logradouro" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label>Nº:</label>
+                            <input formControlName="numero" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Bairro:</label>
+                            <input formControlName="bairro" type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Cidade:</label>
+                            <input formControlName="cidade" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>Estado:</label>
+                            <select name="estado" formControlName="estado" class="form-control select2" style="width: 100%;">
+                                <option selected="selected">-- Selecione --</option>
+                                <option *ngFor="let uf of estados" [value]="uf.id">
+                                    {{uf.nome}}
+                                  </option>
+                              </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <button routerLink="/clientes" type="submit" class="btn btn-danger">Cancelar</button>
+                    <button type="submit" class="btn btn-info pull-right">Cadastrar</button>
+                </div>
+            </div>
+        </div>
+</section>
+</form>
