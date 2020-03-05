@@ -16,8 +16,10 @@ public class ClienteService {
 	
 	public List<Cliente> findAll() {
 		List<Cliente> clientes = clienteRepository.findAll();
-		
 		return clientes;
 	}
 	
+	public void inserir(Cliente cliente) {
+		clienteRepository.save(cliente);
+	}
 }

@@ -5,6 +5,7 @@ import { MarcaService } from 'src/app/marca/marca.service';
 import { TipoService } from 'src/app/tipo/tipo.service';
 import { VeiculoService } from '../veiculo.service';
 import { ToastrService } from 'ngx-toastr';
+import { CorService } from 'src/app/cor/cor.service';
 
 @Component({
   selector: 'app-veiculos-cadastro',
@@ -16,6 +17,7 @@ export class VeiculosCadastroComponent implements OnInit {
   categorias = [];
   marcas = [];
   tipos = [];
+  cores = [];
   formulario: FormGroup;
 
 
@@ -24,13 +26,20 @@ export class VeiculosCadastroComponent implements OnInit {
               private tipoService: TipoService,
               private formBuilder: FormBuilder,
               private veiculoService: VeiculoService,
-              private toastr: ToastrService) { }
+              private toastr: ToastrService,
+              private corService: CorService) { }
 
   ngOnInit() {
     this.configurarFormulario();
     this.listarMarcas();
     this.listarCategorias();
     this.listarTipos();
+    this.listarCores();
+  }
+  listarCores() {
+    this.corService.listarCores().then(resultado => {
+      this.cores = resultado;
+    })
   }
 
   listarCategorias(){
@@ -67,20 +76,14 @@ export class VeiculosCadastroComponent implements OnInit {
 
     this.formulario = this.formBuilder.group({
       id: [],
-      marca: this.formBuilder.group({
-        codigo: [ null, Validators.required ],
-        nome: []}),
+      marca: [null, Validators.required],
       modelo: [null, Validators.required],
       placa: [null, Validators.required],
       ano: [null, Validators.required],
       cor: [null, Validators.required],
+      categoria: [null, Validators.required],
       chassi: [null, Validators.required],
-      tipo: this.formBuilder.group({
-        codigo: [ null, Validators.required ],
-        nome: []}),
-      categoria: this.formBuilder.group({
-        codigo: [ null, Validators.required ],
-        nome: []}),
+      tipo: [null, Validators.required],
     });
 
   }

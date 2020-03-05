@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Cliente } from '../core/model';
 
 @Injectable({
   providedIn: 'root'
@@ -33,4 +34,9 @@ export class ClienteService {
     });;
   }
 
+  salvar(cliente: Cliente): Promise<any>{
+    return this.http.post<Cliente>(`${this.clienteUrl}/insert`, cliente)
+    .toPromise()
+    .then(resposta => resposta);
+  }
 }

@@ -1,11 +1,11 @@
-export class Categoria{
+export class Categoria {
     codigo: number;
     descricao: string;
     valorDiaria: number;
     valorMulta: number;
 }
 
-export class Veiculo{
+export class Veiculo {
     codigo: number;
     marca: string;
     modelo: string;
@@ -16,11 +16,27 @@ export class Veiculo{
     tipo: Tipo;
 }
 
-export class Cor{
+export class Cor {
     codigo: number;
     descricao: string;
 }
-export class Tipo{
+export class Tipo {
     codigo: number;
     descricao: string;
+}
+
+export class Cliente {
+
+    id: number;
+    nome: String
+    cpf: string
+    email: string;
+    dataNascimento: Date;
+    logradouro: string;
+    numero: string;
+    complemento: string;
+    bairro: string;
+    cep: string;
+    cidade: String;
+
 }

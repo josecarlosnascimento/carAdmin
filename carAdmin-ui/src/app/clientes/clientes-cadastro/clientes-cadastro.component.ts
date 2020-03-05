@@ -25,7 +25,10 @@ export class ClientesCadastroComponent implements OnInit {
     this.clienteService.listarEstados().then(result => {
       this.estados = result;
     });
+  }
 
+  salvar(){
+    this.clienteService.salvar(this.formulario.value)
   }
 
   configurarFormulario() {
@@ -42,17 +45,9 @@ export class ClientesCadastroComponent implements OnInit {
       bairro: [null, Validators.required],
       cep: [null, Validators.required],
       cidade: [null, Validators.required],
-      estado: this.formBuilder.group({
-        id: [null, Validators.required],
-        nome: [],
-        sigla: []
-      })
+      estado: [null, Validators.required]
+      
     })
 
   }
-
-salvar(){
-  console.log(this.formulario.value)
-}
-
 }

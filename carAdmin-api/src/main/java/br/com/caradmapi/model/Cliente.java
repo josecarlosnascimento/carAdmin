@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Cliente implements Serializable {
 
@@ -27,6 +29,7 @@ public class Cliente implements Serializable {
 
 	private String email;
 
+	@JsonFormat(pattern = "dd-MM-yyyy")
 	private Date dataNascimento;
 	
 	@Embedded
