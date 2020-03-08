@@ -26,7 +26,8 @@ import { CpfPipe } from './cpf.pipe';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SegurancaModule } from './seguranca/seguranca.module';
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { VeiculoPesquisaFiltroComponent } from './veiculos/veiculo-pesquisa-filtro/veiculo-pesquisa-filtro.component'
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>)= null;;
 
@@ -48,7 +49,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>)= null;;
     
     ClientesCadastroComponent,
     VeiculosCadastroComponent,
-    CpfPipe
+    CpfPipe,
+    VeiculoPesquisaFiltroComponent
   ],
   imports: [
     BrowserModule,
