@@ -66,12 +66,12 @@
 
                                 <ng-container matColumnDef="cpf">
                                     <th mat-header-cell *matHeaderCellDef> CPF </th>
-                                    <td mat-cell *matCellDef="let element"> {{element.cpf | cpf}} </td>
+                                    <td mat-cell *matCellDef="let element"> {{element.cpf}} </td>
                                 </ng-container>
 
                                 <ng-container matColumnDef="dataNascimento">
                                     <th mat-header-cell *matHeaderCellDef> Nascimento </th>
-                                    <td mat-cell *matCellDef="let element"> {{element.dataNascimento | date:'dd/MM/y'}} </td>
+                                    <td mat-cell *matCellDef="let element"> {{element.dataNascimento}} </td>
                                 </ng-container>
 
                                 <ng-container matColumnDef="cidade/estado">

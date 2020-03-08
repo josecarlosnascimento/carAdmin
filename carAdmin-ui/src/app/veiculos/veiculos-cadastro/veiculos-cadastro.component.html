@@ -92,7 +92,7 @@
             </div>
             <div class="box-footer">
                 <button routerLink="/veiculos" type="submit" class="btn btn-danger">Cancelar</button>
-                <button type="submit" class="btn btn-info pull-right">Cadastrar</button>
+                <button type="submit" class="btn btn-info pull-right" [disabled]="formulario.invalid">Cadastrar</button>
             </div>
         </div>
     </div>

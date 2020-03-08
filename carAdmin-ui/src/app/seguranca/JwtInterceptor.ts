@@ -3,13 +3,13 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class JtwHttpInterceptor implements HttpInterceptor{
+export class JtwHttpInterceptor {
 
-  constructor() {}
- intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+ // constructor() {}
+ //intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
 
 
-      return next.handle(req)
-  }
+    //  return next.handle(req)
+ // }
 }

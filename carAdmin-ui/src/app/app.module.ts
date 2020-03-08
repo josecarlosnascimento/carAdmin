@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { MenuComponent } from './layout/menu/menu.component';
 import { FooterComponent } from './layout/footer/footer.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { CategoriasComponent } from './categorias/categorias/categorias.component';
 import { VeiculosPesquisaComponent } from './veiculos/veiculos-pesquisa/veiculos-pesquisa.component';
@@ -25,10 +25,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CpfPipe } from './cpf.pipe'; 
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './seguranca/login/login.component';
-import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
-import { JtwHttpInterceptor } from './seguranca/JwtInterceptor';
 import { SegurancaModule } from './seguranca/seguranca.module';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+
+export const options: Partial<IConfig> | (() => Partial<IConfig>)= null;;
+
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { SegurancaModule } from './seguranca/seguranca.module';
     
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    NgxMaskModule.forRoot(options),
 
     FormsModule,
     ReactiveFormsModule,
