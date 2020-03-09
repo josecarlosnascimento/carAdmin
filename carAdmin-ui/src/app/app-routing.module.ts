@@ -9,6 +9,7 @@ import { DespesaPesquisaComponent } from './despesas/despesa-pesquisa/despesa-pe
 import { BalancoListagemComponent } from './balanco/balanco-listagem/balanco-listagem.component';
 import { ClientesCadastroComponent } from './clientes/clientes-cadastro/clientes-cadastro.component';
 import { VeiculosCadastroComponent } from './veiculos/veiculos-cadastro/veiculos-cadastro.component';
+import { DespesaLancamentoComponent } from './despesas/despesa-lancamento/despesa-lancamento.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,9 @@ const routes: Routes = [
   {path: 'balanco', component: BalancoListagemComponent},
 
   {path: 'clientes/novo', component: ClientesCadastroComponent},
-  {path: 'veiculos/novo', component: VeiculosCadastroComponent}
+  {path: 'veiculos/novo', component: VeiculosCadastroComponent},
+
+  {path: 'despesa/lancamento', component: DespesaLancamentoComponent}
 
 ];
 

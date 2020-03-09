@@ -28,6 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SegurancaModule } from './seguranca/seguranca.module';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { VeiculoPesquisaFiltroComponent } from './veiculos/veiculo-pesquisa-filtro/veiculo-pesquisa-filtro.component'
+import {MatButtonModule} from '@angular/material/button';
+import { DespesaLancamentoComponent } from './despesas/despesa-lancamento/despesa-lancamento.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>)= null;;
 
@@ -50,7 +52,9 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>)= null;;
     ClientesCadastroComponent,
     VeiculosCadastroComponent,
     CpfPipe,
-    VeiculoPesquisaFiltroComponent
+    VeiculoPesquisaFiltroComponent,
+    DespesaLancamentoComponent
+
   ],
   imports: [
     BrowserModule,
@@ -67,7 +71,10 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>)= null;;
     FormsModule,
     ReactiveFormsModule,
 
-    SegurancaModule
+    SegurancaModule,
+
+    MatButtonModule
+     
    
   ],
   providers: [],

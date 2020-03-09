@@ -1,1 +1,68 @@
-<p>despesa-lancamento works!</p>
+<section class="content">
+
+    <mat-card class="animated fadeInRight mat-card ng-star-inserted" style="margin-bottom: 15px;"
+        ng-reflect-klass="animated fadeInRight" ng-reflect-ng-class="vendido">
+        <mat-card-title class="mat-card-title">
+            <div class="row">
+                <div class="col-lg-3 col-md-2 col-sm-2 col-2 pull-right ng-star-inserted">
+                    <span> Placa: ONI-0001 </span></div>
+                <div style="margin-left: 10px;"><span> Veículo: Chevrolet Onix</span></div>
+            </div>
+        </mat-card-title>
+
+        <mat-card-content>
+            <div class="card-info2" style="margin-bottom: 12px;">
+                <span class="label-title">Ultima Revisão: </span>
+                <span class="label-content">01/08/2012</span> |
+                <span class="label-title">KM Ultima Revisão: </span> |
+                <span class="label-content"> 32.9101</span> |
+            </div>
+            <h3 class="card-default-title">Dados do Veiculo:</h3>
+            <hr />
+            <span class="card-default-title">Marca:</span> Chevrolet |
+            <span class="card-default-title">Modelo:</span>Onix |
+            <span class="card-default-title">Placa:</span>ONI - 0001 |
+            <span class="card-default-title">Ano:</span> 2019 - 2020 |
+            <span class="card-default-title">Cor:</span> Preto
+        </mat-card-content>
+    </mat-card>
+
+    <div class="box box-primary">
+        <div class="box-header">
+            <h3 class="box-title">Preencha os campos</h3>
+        </div>
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Tipo de Despesa:</label>
+                        <select formControlName="marca" name="marca" class="form-control select2" style="width: 100%;">
+                            <option selected="selected">-- Selecione --</option>
+                            <option *ngFor="let marca of marcas" [ngValue]="marca">
+                                {{marca.descricao}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Valor:</label>
+                        <input formControlName="modelo" name="modelo" type="text" class="form-control" prefix="R$" mask="separator.2" thousandSeparator=".">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label>Descrição:</label>
+                        <input formControlName="ano" type="text" class="form-control" maxlength="50">
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+                <button routerLink="/veiculos" type="submit" class="btn btn-danger">Cancelar</button>
+                <button type="submit" class="btn btn-info pull-right" [disabled]="formulario.invalid">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+</section>
