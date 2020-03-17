@@ -16,7 +16,6 @@ import { LocacaoPesquisaComponent } from './locacao/locacao-pesquisa/locacao-pes
 import { DespesaPesquisaComponent } from './despesas/despesa-pesquisa/despesa-pesquisa.component';
 import { BalancoListagemComponent } from './balanco/balanco-listagem/balanco-listagem.component';
 import { ClientesCadastroComponent } from './clientes/clientes-cadastro/clientes-cadastro.component';
-import { VeiculosCadastroComponent } from './veiculos/veiculos-cadastro/veiculos-cadastro.component';
 
 import { ToastrModule } from 'ngx-toastr';
 
@@ -26,12 +25,8 @@ import { MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SegurancaModule } from './seguranca/seguranca.module';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
-import { VeiculoPesquisaFiltroComponent } from './veiculos/veiculo-pesquisa-filtro/veiculo-pesquisa-filtro.component'
 import {MatButtonModule} from '@angular/material/button';
-import { DespesaLancamentoComponent } from './despesas/despesa-lancamento/despesa-lancamento.component';
-import { VeiculosModule } from './veiculos/veiculos.module';
 import { MatTableModule } from '@angular/material/table';
-import { DespesasModule } from './despesas/despesas.module';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>)= null;;
 
@@ -71,9 +66,6 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>)= null;;
 
     MatButtonModule,
      
-    VeiculosModule,
-    DespesasModule,
-
     MatCardModule,
     MatTableModule,
 

@@ -6,9 +6,10 @@ import { VeiculoPesquisaFiltroComponent } from './veiculo-pesquisa-filtro/veicul
 
 import { MatTableModule } from '@angular/material'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { VeiculosRoutingModule } from './veiculos-routing.module';
 
 @NgModule({
-  declarations: [VeiculosPesquisaComponent, VeiculosCadastroComponent, VeiculoPesquisaFiltroComponent],
+  declarations: [VeiculoPesquisaFiltroComponent, VeiculosPesquisaComponent, VeiculosCadastroComponent],
   imports: [
     CommonModule,
     MatTableModule,
@@ -16,7 +17,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule, 
 
+    VeiculosRoutingModule
+
   ],
-  exports:[VeiculoPesquisaFiltroComponent]
+  exports:[VeiculoPesquisaFiltroComponent, VeiculosPesquisaComponent, VeiculosCadastroComponent]
 })
 export class VeiculosModule { }

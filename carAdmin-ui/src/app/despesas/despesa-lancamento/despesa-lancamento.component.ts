@@ -3,6 +3,8 @@ import { DespesasService } from '../despesas.service';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Veiculo } from 'src/app/core/model';
+import { ActivatedRoute } from '@angular/router';
+import { VeiculoService } from 'src/app/veiculos/veiculo.service';
 
 @Component({
   selector: 'app-despesa-lancamento',
@@ -12,19 +14,28 @@ import { Veiculo } from 'src/app/core/model';
 export class DespesaLancamentoComponent implements OnInit {
 
 
-  @Input() veiculo: Veiculo;
-
   tipoDespesa: [];
   formulario: FormGroup;
+  veiculo: Veiculo;
 
   constructor(private despesaService: DespesasService,
               private formBuilder: FormBuilder,
-              private toastr: ToastrService) { }
+              private toastr: ToastrService,
+              private route: ActivatedRoute,
+              private veiculoService: VeiculoService) { }
 
 
   ngOnInit() {
     this.configurarFormulario();
     this.listarTipoDespesa();
+
+    const codigoVeiculo= this.route.snapshot.params['codigo'];
+
+
+    this.veiculoService.buscarPorId(codigoVeiculo).then(resultado => {
+      this.veiculo = resultado;
+    });
+
   }
 
   listarTipoDespesa(){

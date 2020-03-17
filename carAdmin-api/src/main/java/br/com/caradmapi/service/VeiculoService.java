@@ -1,9 +1,11 @@
 package br.com.caradmapi.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 import br.com.caradmapi.model.Veiculo;
 import br.com.caradmapi.repository.VeiculoRepository;
@@ -25,5 +27,9 @@ public class VeiculoService {
 	
 	public void insert(Veiculo veiculo) {
 		veiculoRepository.save(veiculo);
+	}
+	
+	public Optional<Veiculo> findById(Integer codigo){
+		return veiculoRepository.findById(codigo);
 	}
 }

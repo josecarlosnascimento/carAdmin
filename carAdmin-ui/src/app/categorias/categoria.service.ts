@@ -19,9 +19,7 @@ export class CategoriaService {
   listarCategoria(): Promise<any> {
 
      return this.http.get<any>(`${this.categoriaUrl}/listarCategorias`).toPromise()
-      .then(response => {
-        return response;
-      });
+      .then(response => response);
     }
 
     salvar(categoria: Categoria): Promise<Categoria>{

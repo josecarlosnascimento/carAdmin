@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [ClientesPesquisaComponent, ClientesCadastroComponent],
   imports: [
     CommonModule,
+
+    FormsModule,
     ReactiveFormsModule
 
   ]

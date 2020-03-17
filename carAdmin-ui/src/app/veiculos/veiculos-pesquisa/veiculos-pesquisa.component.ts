@@ -21,7 +21,6 @@ export class VeiculosPesquisaComponent implements OnInit {
   listarVeiculos(){
     this.veiculoService.listarVeiculos().then(veiculos => {
       this.dataSource = veiculos;
-      console.log(this.dataSource)
     });
   }
 
