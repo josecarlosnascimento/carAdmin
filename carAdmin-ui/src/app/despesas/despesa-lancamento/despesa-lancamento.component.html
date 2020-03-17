@@ -1,5 +1,5 @@
+<form autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formulario">
 <section class="content">
-
     <mat-card class="animated fadeInRight mat-card ng-star-inserted" style="margin-bottom: 15px;"
         ng-reflect-klass="animated fadeInRight" ng-reflect-ng-class="vendido">
         <mat-card-title class="mat-card-title">
@@ -36,10 +36,10 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label>Tipo de Despesa:</label>
-                        <select formControlName="marca" name="marca" class="form-control select2" style="width: 100%;">
+                        <select formControlName="tipoDespesa" name="tipoDespesa" class="form-control select2" style="width: 100%;">
                             <option selected="selected">-- Selecione --</option>
-                            <option *ngFor="let marca of marcas" [ngValue]="marca">
-                                {{marca.descricao}}
+                            <option *ngFor="let tp of tipoDespesa" [ngValue]="tp">
+                                {{tp.descricao}}
                             </option>
                         </select>
                     </div>
@@ -47,7 +47,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label>Valor:</label>
-                        <input formControlName="modelo" name="modelo" type="text" class="form-control" prefix="R$" mask="separator.2" thousandSeparator=".">
+                        <input formControlName="valor" name="valor" type="text" class="form-control" prefix="R$" mask="separator,2" thousandSeparator=".">
                     </div>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                 <div class="col-md-8">
                     <div class="form-group">
                         <label>Descrição:</label>
-                        <input formControlName="ano" type="text" class="form-control" maxlength="50">
+                        <input formControlName="descricao" type="descricao" class="form-control" maxlength="50">
                     </div>
                 </div>
             </div>
@@ -66,3 +66,4 @@
         </div>
     </div>
 </section>
+</form>

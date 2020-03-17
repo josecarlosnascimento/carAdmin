@@ -40,3 +40,19 @@ export class Cliente {
     cidade: String;
 
 }
+
+export class TipoDespesa{
+    id: number;
+    descricao: String
+}
+
+export class DespesaVeiculo{
+
+    id: number;
+    descricao: String
+    data: Date;
+    valor: number;
+    tipoDespesa: TipoDespesa;
+
+    veiculo: Veiculo;
+}

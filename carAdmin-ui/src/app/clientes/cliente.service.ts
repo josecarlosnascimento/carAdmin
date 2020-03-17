@@ -35,7 +35,6 @@ export class ClienteService {
   }
 
   salvar(cliente: Cliente): Promise<any>{
-    console.log(cliente)
     return this.http.post<Cliente>(`${this.clienteUrl}/insert`, cliente)
     .toPromise()
     .then(resposta => resposta);

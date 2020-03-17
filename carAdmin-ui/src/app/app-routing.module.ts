@@ -24,8 +24,6 @@ const routes: Routes = [
   {path: 'clientes/novo', component: ClientesCadastroComponent},
   {path: 'veiculos/novo', component: VeiculosCadastroComponent},
 
-  {path: 'despesa/lancamento', component: DespesaLancamentoComponent}
-
 ];
 
 @NgModule({

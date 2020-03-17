@@ -11,7 +11,6 @@ import javax.persistence.Id;
 @Entity
 public class Despesa implements Serializable{
 
-	
 	/**
 	 * 
 	 */
@@ -27,7 +26,9 @@ public class Despesa implements Serializable{
 	
 	private double valor;
 	
-	private TipoDespesa tipo;
+	private TipoDespesa tipoDespesa;
+	
+	private Veiculo veiculo;
 
 	public Integer getId() {
 		return id;
@@ -61,13 +62,21 @@ public class Despesa implements Serializable{
 		this.valor = valor;
 	}
 
-	public TipoDespesa getTipo() {
-		return tipo;
+
+	public TipoDespesa getTipoDespesa() {
+		return tipoDespesa;
 	}
 
-	public void setTipo(TipoDespesa tipo) {
-		this.tipo = tipo;
+	public void setTipoDespesa(TipoDespesa tipoDespesa) {
+		this.tipoDespesa = tipoDespesa;
 	}
-	
+
+	public Veiculo getVeiculo() {
+		return veiculo;
+	}
+
+	public void setVeiculo(Veiculo veiculo) {
+		this.veiculo = veiculo;
+	}
 	
 }

@@ -30,7 +30,9 @@
 
 
         <div style="margin-right: 10px; text-align: right;">
-            <button mat-raised-button color="primary" routerLink="/despesa/lancamento"> Gerenciar</button>
+            <button mat-raised-button color="primary"
+            [routerLink]="['/despesas/lancamento', 1]"
+           > Gerenciar</button>
         </div>
         </mat-card-content>
     </mat-card>

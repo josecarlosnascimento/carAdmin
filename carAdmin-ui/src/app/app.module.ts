@@ -20,7 +20,6 @@ import { VeiculosCadastroComponent } from './veiculos/veiculos-cadastro/veiculos
 
 import { ToastrModule } from 'ngx-toastr';
 
-import {MatTableModule} from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CpfPipe } from './cpf.pipe'; 
 import { MatCardModule } from '@angular/material/card';
@@ -30,6 +29,9 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { VeiculoPesquisaFiltroComponent } from './veiculos/veiculo-pesquisa-filtro/veiculo-pesquisa-filtro.component'
 import {MatButtonModule} from '@angular/material/button';
 import { DespesaLancamentoComponent } from './despesas/despesa-lancamento/despesa-lancamento.component';
+import { VeiculosModule } from './veiculos/veiculos.module';
+import { MatTableModule } from '@angular/material/table';
+import { DespesasModule } from './despesas/despesas.module';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>)= null;;
 
@@ -42,18 +44,14 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>)= null;;
     FooterComponent,
 
     CategoriasComponent,
-    VeiculosPesquisaComponent,
     ClientesPesquisaComponent,
     DashboardComponent,
     LocacaoPesquisaComponent,
-    DespesaPesquisaComponent,
+
     BalancoListagemComponent,
     
     ClientesCadastroComponent,
-    VeiculosCadastroComponent,
     CpfPipe,
-    VeiculoPesquisaFiltroComponent,
-    DespesaLancamentoComponent
 
   ],
   imports: [
@@ -61,9 +59,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>)= null;;
     AppRoutingModule,
     HttpClientModule,
 
-    MatTableModule,
-    MatCardModule,
-    
+  
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     NgxMaskModule.forRoot(options),
@@ -73,8 +69,14 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>)= null;;
 
     SegurancaModule,
 
-    MatButtonModule
+    MatButtonModule,
      
+    VeiculosModule,
+    DespesasModule,
+
+    MatCardModule,
+    MatTableModule,
+
    
   ],
   providers: [],
