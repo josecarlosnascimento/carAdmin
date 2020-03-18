@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { DespesaVeiculo } from '../core/model';
+import { DespesaVeiculo, Veiculo } from '../core/model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +26,11 @@ export class DespesasService {
     });;
   }
 
-  salvarDespesa(despesaVeiculo: DespesaVeiculo): Promise<any>{
+  salvarDespesa(despesaVeiculo: DespesaVeiculo, veiculo: Veiculo): Promise<any>{
+    console.log(despesaVeiculo)
+
+    despesaVeiculo.veiculo = veiculo;
+
     console.log(despesaVeiculo)
     return this.http.post<DespesaVeiculo>(`${this.despesa}/inserirDespesa`, despesaVeiculo).toPromise()
               .then(resposta => resposta)

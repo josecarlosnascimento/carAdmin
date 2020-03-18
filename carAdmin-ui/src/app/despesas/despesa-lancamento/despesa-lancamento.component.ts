@@ -46,7 +46,7 @@ export class DespesaLancamentoComponent implements OnInit {
   }
 
   salvar(){
-    this.despesaService.salvarDespesa(this.formulario.value).then(() =>{
+    this.despesaService.salvarDespesa(this.formulario.value, this.veiculo).then(() =>{
       this.formulario.reset();
       this.toastr.success('Despesa cadastrada com sucesso.')
     })

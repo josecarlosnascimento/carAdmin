@@ -3,13 +3,14 @@
         <app-veiculo-pesquisa-filtro></app-veiculo-pesquisa-filtro>
     </div>
 
-    <mat-card class="animated fadeInRight mat-card finalizado ng-star-inserted" style="margin-bottom: 15px;"
+
+    <mat-card *ngFor="let veiculo of veiculos" class="animated fadeInRight mat-card finalizado ng-star-inserted" style="margin-bottom: 15px;"
         ng-reflect-klass="animated fadeInRight" ng-reflect-ng-class="vendido">
         <mat-card-title class="mat-card-title">
             <div class="row">
                 <div class="col-lg-3 col-md-2 col-sm-2 col-2 pull-right ng-star-inserted">
-                    <span> Placa: ONI-0001 </span></div>
-                <div style="margin-left: 10px;"><span> Veículo: Chevrolet Onix</span></div>
+                    <span> {{veiculo.placa}} </span></div>
+                <div style="margin-left: 10px;"><span> VEÍCULO: {{veiculo.marca.descricao}} {{veiculo.modelo}}</span></div>
             </div>
         </mat-card-title>
            
@@ -22,17 +23,16 @@
         </div>
         <h3 class="card-default-title">Dados do Veiculo:</h3>
         <hr />
-        <span class="card-default-title">Marca:</span> Chevrolet |
-        <span class="card-default-title">Modelo:</span>Onix |
-        <span class="card-default-title">Placa:</span>ONI - 0001 |
-        <span class="card-default-title">Ano:</span> 2019 - 2020 |
-        <span class="card-default-title">Cor:</span> Preto
+        <span class="card-default-title">Marca:</span> {{veiculo.marca.descricao}} |
+        <span class="card-default-title">Modelo:</span>{{veiculo.modelo}} |
+        <span class="card-default-title">Placa:</span>{{veiculo.placa}} |
+        <span class="card-default-title">Ano:</span> {{veiculo.ano}} |
+        <span class="card-default-title">Cor:</span> {{veiculo.cor.descricao}}
 
 
         <div style="margin-right: 10px; text-align: right;">
             <button mat-raised-button color="primary"
-            [routerLink]="['/despesas/lancamento', 1]"
-           > Gerenciar</button>
+            [routerLink]="['/despesas/lancamento', veiculo.id]"> Gerenciar</button>
         </div>
         </mat-card-content>
     </mat-card>

@@ -28,10 +28,6 @@ public class VeiculoController {
 		
 		List<Veiculo> veiculos = veiculoService.listar();
 		
-		for (Veiculo veiculo : veiculos) {
-			System.out.println(veiculo.getModelo());
-		}
-		
 		return veiculos;
 	}
 	

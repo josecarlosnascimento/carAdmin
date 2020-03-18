@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { VeiculoService } from 'src/app/veiculos/veiculo.service';
 
 @Component({
   selector: 'app-despesa-pesquisa',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DespesaPesquisaComponent implements OnInit {
 
-  constructor() { }
+  veiculos: [];
+  constructor(private veiculoService: VeiculoService) { }
 
   ngOnInit() {
+    this.listarVeiculos();
+  }
+
+  listarVeiculos(){
+    this.veiculoService.listarVeiculos().then(veiculos => {
+      this.veiculos = veiculos;
+    });
   }
 
 }

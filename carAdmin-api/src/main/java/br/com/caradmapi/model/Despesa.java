@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Despesa implements Serializable{
@@ -26,8 +28,10 @@ public class Despesa implements Serializable{
 	
 	private double valor;
 	
+	@OneToOne
 	private TipoDespesa tipoDespesa;
 	
+	@ManyToOne
 	private Veiculo veiculo;
 
 	public Integer getId() {
