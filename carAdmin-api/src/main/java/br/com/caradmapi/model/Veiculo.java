@@ -51,10 +51,6 @@ public class Veiculo implements Serializable {
 	@JoinColumn(name = "tipo")
 	private TipoVeiculo tipo;
 	
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id")
-	private List<Despesa> despesas;
-
 	public Integer getId() {
 		return id;
 	}
@@ -127,14 +123,4 @@ public class Veiculo implements Serializable {
 		this.tipo = tipo;
 	}
 
-	public List<Despesa> getDespesas() {
-		return despesas;
-	}
-
-	public void setDespesas(List<Despesa> despesas) {
-		this.despesas = despesas;
-	}
-	
-	
-	
 }

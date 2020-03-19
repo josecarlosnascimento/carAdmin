@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
   efetuarLogin(login, senha){
     this.auth.login(login,senha).then(() => {
       this.router.navigate(['/dashboard'])
-      console.log('Redirecionando.......')
     }).catch(e => this.toastr.error(e.error.error_description))
   }
 

@@ -17,7 +17,7 @@ import br.com.caradmapi.service.VeiculoService;
 
 @RestController
 @RequestMapping("/veiculo")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin
 public class VeiculoController {
 
 	@Autowired
