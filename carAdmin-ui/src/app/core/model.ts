@@ -1,8 +1,14 @@
 export class Categoria {
-    codigo: number;
+    id: number;
     descricao: string;
     valorDiaria: number;
     valorMulta: number;
+}
+
+export class Status{
+
+    codigo: number;
+    descricao: string;
 }
 
 export class Veiculo {
@@ -14,6 +20,7 @@ export class Veiculo {
     cor: Cor;
     categoria: Categoria;
     tipo: Tipo;
+    status: Status;
 }
 
 export class Cor {
@@ -52,7 +59,7 @@ export class DespesaVeiculo{
     descricao: String
     data: Date;
     valor: number;
-    tipoDespesa: TipoDespesa;
+    tipo: TipoDespesa;
 
     veiculo: Veiculo;
 }

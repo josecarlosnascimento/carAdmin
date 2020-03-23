@@ -1,5 +1,8 @@
 package br.com.caradmapi.service;
 
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +16,12 @@ public class DespesaService {
 	private DespesaRepository despesaRepository;
 	
 	public void inserirDespesa(Despesa despesa) {
+		despesa.setData(new Date());
 		despesaRepository.save(despesa);
+	}
+	
+	public List<Despesa> listarDespesasPorVeiculo(Integer codigo){
+		return despesaRepository.listarDespesasPorVeiculo(codigo);
 	}
 
 }

@@ -14,7 +14,7 @@ import { VeiculoService } from 'src/app/veiculos/veiculo.service';
 export class DespesaLancamentoComponent implements OnInit {
 
 
-  tipoDespesa: [];
+  tipo: [];
   formulario: FormGroup;
   veiculo: Veiculo;
 
@@ -41,7 +41,7 @@ export class DespesaLancamentoComponent implements OnInit {
   listarTipoDespesa(){
     this.despesaService.listarTiposDespesa().then(result => {
       console.log(result)
-      this.tipoDespesa = result;
+      this.tipo = result;
     });
   }
 
@@ -59,7 +59,7 @@ export class DespesaLancamentoComponent implements OnInit {
       id: [],
       valor: [null, Validators.required],
       descricao: [null, Validators.required],
-      tipoDespesa: [null, Validators.required],
+      tipo: [null, Validators.required],
      
     })
 

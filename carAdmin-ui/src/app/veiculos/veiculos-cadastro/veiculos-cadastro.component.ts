@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
 import { CategoriaService } from 'src/app/categorias/categoria.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MarcaService } from 'src/app/marca/marca.service';
@@ -6,6 +6,8 @@ import { TipoService } from 'src/app/tipo/tipo.service';
 import { VeiculoService } from '../veiculo.service';
 import { ToastrService } from 'ngx-toastr';
 import { CorService } from 'src/app/cor/cor.service';
+import { ActivatedRoute } from '@angular/router';
+import { DespesasService } from 'src/app/despesas/despesas.service';
 
 @Component({
   selector: 'app-veiculos-cadastro',
@@ -13,11 +15,14 @@ import { CorService } from 'src/app/cor/cor.service';
   styleUrls: ['./veiculos-cadastro.component.css']
 })
 export class VeiculosCadastroComponent implements OnInit {
+  displayedColumns: string[] = ['id', 'tipo', 'data', 'descricao'];
 
   categorias = [];
   marcas = [];
   tipos = [];
   cores = [];
+  despesas = [];
+  listaStatus = [];
   formulario: FormGroup;
 
 
@@ -27,7 +32,9 @@ export class VeiculosCadastroComponent implements OnInit {
               private formBuilder: FormBuilder,
               private veiculoService: VeiculoService,
               private toastr: ToastrService,
-              private corService: CorService) { }
+              private route: ActivatedRoute,
+              private corService: CorService,
+              private despesasService: DespesasService) { }
 
   ngOnInit() {
     this.configurarFormulario();
@@ -35,6 +42,40 @@ export class VeiculosCadastroComponent implements OnInit {
     this.listarCategorias();
     this.listarTipos();
     this.listarCores();
+    this.listarStatus();
+
+    const codigoVeiculo= this.route.snapshot.params['codigo'];
+
+    if(codigoVeiculo){
+      this.buscarPorId(codigoVeiculo);
+      this.buscarDespesas(codigoVeiculo);
+    }
+    
+
+    
+  }
+
+  buscarDespesas(codigoVeiculo: any) {
+    this.despesasService.listarDespesasPorVeiculo(codigoVeiculo).then(resultado => {
+      this.despesas = resultado;
+    });
+  }
+
+  buscarPorId(codigoVeiculo: any) {
+    this.veiculoService.buscarPorId(codigoVeiculo).then(veiculo => {
+      this.formulario.patchValue(veiculo);
+      this.formulario.get('marca').setValue(veiculo.marca.id);
+      this.formulario.get('cor').setValue(veiculo.cor.id);
+      this.formulario.get('tipo').setValue(veiculo.tipo.id);
+      this.formulario.get('categoria').setValue(veiculo.categoria.id);
+      console.log(this.formulario.value);
+    });
+  }
+
+  listarStatus(){
+    this.veiculoService.listarStatus().then(resultado => {
+      this.listaStatus = resultado;
+    })
   }
   listarCores() {
     this.corService.listarCores().then(resultado => {
@@ -76,7 +117,10 @@ export class VeiculosCadastroComponent implements OnInit {
 
     this.formulario = this.formBuilder.group({
       id: [],
-      marca: [null, Validators.required],
+      marca: this.formBuilder.group({
+        id: [ null, Validators.required ],
+        descricao: []
+      }),
       modelo: [null, Validators.required],
       placa: [null, Validators.required],
       ano: [null, Validators.required],
@@ -84,6 +128,8 @@ export class VeiculosCadastroComponent implements OnInit {
       categoria: [null, Validators.required],
       chassi: [null, Validators.required],
       tipo: [null, Validators.required],
+      status: [null, Validators.required],
+
     });
 
   }

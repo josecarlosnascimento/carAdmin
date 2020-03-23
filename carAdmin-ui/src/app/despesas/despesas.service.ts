@@ -26,12 +26,17 @@ export class DespesasService {
     });;
   }
 
+  listarDespesasPorVeiculo(codigo: Number) {
+    return this.http.get<any>(`${this.despesa}/despesaPorVeiculo/${codigo}`).toPromise()
+    .then(response => {
+          return response;
+    });
+  }
+
   salvarDespesa(despesaVeiculo: DespesaVeiculo, veiculo: Veiculo): Promise<any>{
-    console.log(despesaVeiculo)
 
     despesaVeiculo.veiculo = veiculo;
 
-    console.log(despesaVeiculo)
     return this.http.post<DespesaVeiculo>(`${this.despesa}/inserirDespesa`, despesaVeiculo).toPromise()
               .then(resposta => resposta)
   }

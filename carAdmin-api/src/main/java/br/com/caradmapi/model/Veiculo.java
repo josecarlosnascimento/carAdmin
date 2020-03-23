@@ -51,6 +51,10 @@ public class Veiculo implements Serializable {
 	@JoinColumn(name = "tipo")
 	private TipoVeiculo tipo;
 	
+	@OneToOne
+	@JoinColumn(name = "status")
+	private Status status;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -123,4 +127,11 @@ public class Veiculo implements Serializable {
 		this.tipo = tipo;
 	}
 
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 }

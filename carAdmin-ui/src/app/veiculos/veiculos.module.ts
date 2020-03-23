@@ -4,7 +4,7 @@ import { VeiculosPesquisaComponent } from './veiculos-pesquisa/veiculos-pesquisa
 import { VeiculosCadastroComponent } from './veiculos-cadastro/veiculos-cadastro.component';
 import { VeiculoPesquisaFiltroComponent } from './veiculo-pesquisa-filtro/veiculo-pesquisa-filtro.component';
 
-import { MatTableModule } from '@angular/material'
+import { MatTableModule, MatCardModule } from '@angular/material'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VeiculosRoutingModule } from './veiculos-routing.module';
 
@@ -13,6 +13,8 @@ import { VeiculosRoutingModule } from './veiculos-routing.module';
   imports: [
     CommonModule,
     MatTableModule,
+    MatCardModule,
+
 
     FormsModule,
     ReactiveFormsModule, 

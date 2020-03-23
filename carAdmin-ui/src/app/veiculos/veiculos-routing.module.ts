@@ -13,6 +13,10 @@ const routes: Routes = [
     path: 'novo',
     component: VeiculosCadastroComponent,
   },
+  {
+    path: 'alterar/:codigo',
+    component: VeiculosCadastroComponent,
+  }
 ];
 
 @NgModule({

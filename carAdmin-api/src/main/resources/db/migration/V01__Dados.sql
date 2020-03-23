@@ -3,6 +3,7 @@ DROP TABLE IF EXISTS cliente;
 DROP TABLE IF EXISTS estado;
 DROP TABLE IF EXISTS estado;
 DROP TABLE IF EXISTS despesa;
+DROP TABLE IF EXISTS status;
 DROP TABLE IF EXISTS veiculo;
 DROP TABLE IF EXISTS veiculo_despesas;
 DROP TABLE IF EXISTS tipo_despesa;
@@ -39,13 +40,9 @@ id INTEGER AUTO_INCREMENT primary KEY,
 descricao  VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE despesa(
-id INTEGER AUTO_INCREMENT primary KEY,
-descricao  VARCHAR(50) NOT NULL,
-data DATE NOT NULL,
-valor DOUBLE NOT NULL,
-tipo INTEGER,
-  FOREIGN KEY (tipo) REFERENCES tipo_despesa (id)
+CREATE TABLE status(
+ID SMALLINT AUTO_INCREMENT PRIMARY KEY,
+DESCRICAO VARCHAR(50)
 );
 
 CREATE TABLE veiculo(
@@ -64,6 +61,18 @@ chassi VARCHAR(50),
   FOREIGN KEY (tipo) REFERENCES tipo_veiculo (id)
 );
 
+CREATE TABLE despesa(
+id INTEGER AUTO_INCREMENT primary KEY,
+descricao  VARCHAR(50) NOT NULL,
+data DATE NOT NULL,
+valor DOUBLE NOT NULL,
+tipo INTEGER,
+veiculo integer,
+  FOREIGN KEY (tipo) REFERENCES tipo_despesa (id),
+  FOREIGN KEY (veiculo) REFERENCES veiculo (id)
+  
+);
+
 CREATE TABLE estado(
 id INTEGER AUTO_INCREMENT primary KEY,
 nome VARCHAR(50),
@@ -73,12 +82,14 @@ sigla CHAR(2)
 CREATE TABLE cliente (
 id INTEGER AUTO_INCREMENT primary KEY,
 nome VARCHAR (255),
-cpf CHAR (11),
+cpf CHAR (14),
 data_nascimento DATE,
+email varchar(255),
 logradouro VARCHAR (255),
 numero SMALLINT,
 bairro VARCHAR (255),
-cep CHAR(8),
+complemento varchar (255),
+cep CHAR(9),
 cidade VARCHAR (255),
 estado_id INTEGER,
 	FOREIGN KEY (estado_id) REFERENCES estado (id)
@@ -172,11 +183,6 @@ INSERT INTO cliente (nome,cpf,data_nascimento,logradouro,numero,bairro,cep,cidad
 INSERT INTO cliente (nome,cpf,data_nascimento,logradouro,numero,bairro,cep,cidade,estado_id) VALUES ('Illiana',91494592030,'08-11-19','510-6174 Lectus Av.',5873,'Gyeonggi',76698278,'Dongducheon',11),('Faith',24904134289,'03-05-20','Ap #120-258 Tellus. Road',5397,'CL',45750249,'Ávila',12),('Logan',88243686407,'27-03-20','774-4750 Duis Rd.',6892,'ATL',28395528,'Soledad',7),('Norman',28819941812,'07-01-21','4186 Ridiculus Av.',6521,'New South Wales',27554102,'Sydney',23),('Hanae',37803640630,'26-09-20','436-5144 Ornare Road',8986,'Vienna',51220792,'Vienna',26),('Colby',81415412409,'31-12-20','3838 Aliquet Rd.',6802,'Vienna',36383981,'Vienna',8),('Robin',91236472047,'02-11-19','Ap #516-8674 Tellus. Rd.',3843,'East Java',33388641,'Kediri',4),('Inga',43433049900,'14-10-20','678-839 Diam. Road',2817,'NSW',59150119,'Newcastle',22),('Clementine',21076431456,'12-02-19','Ap #166-3144 Aliquam Rd.',9944,'VT',15205618,'Montpelier',16),('Lawrence',48811485494,'09-06-19','596-1843 In, Av.',139,'Hatay',96655951,'Dörtyol',3);
 
 
-CREATE TABLE STATUS_VEICULO(
-ID SMALLINT AUTO_INCREMENT PRIMARY KEY,
-DESCRICAO VARCHAR(50)
-);
-
 CREATE TABLE usuario(
 CODIGO SMALLINT AUTO_INCREMENT PRIMARY KEY,
 NOME VARCHAR(100),
@@ -198,7 +204,7 @@ CODIGO_PERMISSAO INTEGER,
 
 ALTER TABLE veiculo ADD COLUMN STATUS SMALLINT;
 
-alter TABLE VEICULO add constraint status_fk FOREIGN KEY (STATUS) REFERENCES STATUS_VEICULO (ID) ;
+alter TABLE VEICULO add constraint status_fk FOREIGN KEY (STATUS) REFERENCES status (ID) ;
 
 INSERT INTO usuario (codigo, email, nome, senha) VALUES (1,'jcarlos.nascimento@outlook.com','José Carlos','$2a$10$tlFgE76lrbqPkkJOLv.MROJwK4sEFy6uoKDXfbI.RHZkSfs2DqZv2');
 
@@ -212,12 +218,12 @@ INSERT INTO marca (id, descricao) VALUES (3,'FIAT');
 INSERT INTO marca (id, descricao) VALUES (4,'Honda');
 INSERT INTO marca (id, descricao) VALUES (5,'hyundai');
 
- INSERT INTO STATUS_VEICULO (ID, DESCRICAO) VALUES (1,'Disponível');
- INSERT INTO STATUS_VEICULO (ID, DESCRICAO) VALUES (2,'Locado');
- INSERT INTO STATUS_VEICULO (ID, DESCRICAO) VALUES (3,'Em Atraso');
- INSERT INTO STATUS_VEICULO (ID, DESCRICAO) VALUES (4,'Manutenção');
+ INSERT INTO status (ID, DESCRICAO) VALUES (1,'Disponível');
+ INSERT INTO status (ID, DESCRICAO) VALUES (2,'Locado');
+ INSERT INTO status (ID, DESCRICAO) VALUES (3,'Em Atraso');
+ INSERT INTO status (ID, DESCRICAO) VALUES (4,'Manutenção');
  
- INSERT INTO veiculo (marca, modelo, ano, cor, categoria, tipo, placa, chassi) VALUES (4, 'City', 2019, 6, 5, 2, 'HON-0001', 'AJJU7AY20PL2JDMNH');
+ INSERT INTO veiculo (marca, modelo, ano, cor, categoria, tipo, placa, chassi, status) VALUES (4, 'City', 2019, 6, 5, 2, 'HON-0001', 'AJJU7AY20PL2JDMNH', 1);
  
 commit;
 

@@ -3,10 +3,12 @@ package br.com.caradmapi.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
@@ -29,9 +31,11 @@ public class Despesa implements Serializable{
 	private double valor;
 	
 	@OneToOne
-	private TipoDespesa tipoDespesa;
+	@JoinColumn(name="tipo")
+	private TipoDespesa tipo;
 	
 	@ManyToOne
+	@JoinColumn(name="veiculo")
 	private Veiculo veiculo;
 
 	public Integer getId() {
@@ -65,14 +69,13 @@ public class Despesa implements Serializable{
 	public void setValor(double valor) {
 		this.valor = valor;
 	}
-
-
-	public TipoDespesa getTipoDespesa() {
-		return tipoDespesa;
+	
+	public TipoDespesa getTipo() {
+		return tipo;
 	}
 
-	public void setTipoDespesa(TipoDespesa tipoDespesa) {
-		this.tipoDespesa = tipoDespesa;
+	public void setTipo(TipoDespesa tipo) {
+		this.tipo = tipo;
 	}
 
 	public Veiculo getVeiculo() {

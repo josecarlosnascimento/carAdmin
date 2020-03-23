@@ -1,7 +1,11 @@
 package br.com.caradmapi.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,5 +27,9 @@ public class DespesaController {
 	public void inserirDespesas(@RequestBody Despesa despesa){
 		despesaService.inserirDespesa(despesa);
 	}
-
+	
+	@GetMapping("/despesaPorVeiculo/{codigo}")
+	public List<Despesa> listarDespesasPorVeiculo(@PathVariable Integer codigo){
+		return despesaService.listarDespesasPorVeiculo(codigo);
+	}
 }

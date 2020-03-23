@@ -9,11 +9,17 @@ import { Veiculo } from '../core/model';
 export class VeiculoService {
 
   veiculoUrl: string;
+  statusUrl: string;
 
   constructor(private httpClient: HttpClient) {
     this.veiculoUrl = `${environment.apiUrl}/veiculo`
+    this.statusUrl = `${environment.apiUrl}/status`
   }
 
+  listarStatus(): Promise<any>{
+    return this.httpClient.get<any>(`${this.statusUrl}/listarStatus`).toPromise()
+      .then(status => status)
+  }
 
   listarVeiculos(): Promise<any> {
     return this.httpClient.get<any>(`${this.veiculoUrl}/listarVeiculos`).toPromise()

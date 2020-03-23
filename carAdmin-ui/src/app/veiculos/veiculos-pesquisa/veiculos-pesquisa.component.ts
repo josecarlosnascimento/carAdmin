@@ -8,7 +8,7 @@ import { VeiculoService } from '../veiculo.service';
 })
 export class VeiculosPesquisaComponent implements OnInit {
   displayedColumns: string[] = ['id', 'marca', 'modelo', 'placa', 'tipo', 'categoria'];
-  dataSource = [];
+  veiculos = [];
 
   constructor(private veiculoService: VeiculoService) { }
 
@@ -20,7 +20,7 @@ export class VeiculosPesquisaComponent implements OnInit {
 
   listarVeiculos(){
     this.veiculoService.listarVeiculos().then(veiculos => {
-      this.dataSource = veiculos;
+      this.veiculos = veiculos;
     });
   }
 
