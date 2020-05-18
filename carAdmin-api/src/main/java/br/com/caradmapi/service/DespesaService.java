@@ -8,12 +8,16 @@ import org.springframework.stereotype.Service;
 
 import br.com.caradmapi.model.Despesa;
 import br.com.caradmapi.repository.DespesaRepository;
+import br.com.caradmapi.repository.impl.DespesaRepositoryImpl;
 
 @Service
 public class DespesaService {
 	
 	@Autowired
 	private DespesaRepository despesaRepository;
+	
+	@Autowired
+	private DespesaRepositoryImpl despesaRepositoryImpl;
 	
 	public void inserirDespesa(Despesa despesa) {
 		despesa.setData(new Date());
@@ -24,4 +28,7 @@ public class DespesaService {
 		return despesaRepository.listarDespesasPorVeiculo(codigo);
 	}
 
+	public List<Despesa> buscarDespesasPorVeiculo(Long idVeiculo){
+		return despesaRepositoryImpl.buscarDespesasPorVeiculo(idVeiculo);
+	}
 }

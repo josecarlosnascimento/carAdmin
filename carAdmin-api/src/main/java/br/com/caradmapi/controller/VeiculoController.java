@@ -1,5 +1,7 @@
 package br.com.caradmapi.controller;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.caradmapi.model.Veiculo;
+import br.com.caradmapi.repository.impl.dto.VeiculoDto;
 import br.com.caradmapi.service.VeiculoService;
 
 @RestController
@@ -28,6 +31,8 @@ public class VeiculoController {
 		
 		List<Veiculo> veiculos = veiculoService.listar();
 		
+		veiculoService.listarBalanco();
+		
 		return veiculos;
 	}
 	
@@ -39,6 +44,14 @@ public class VeiculoController {
 	@GetMapping("/{codigo}")
 	public Optional<Veiculo> findById(@PathVariable Integer codigo){
 		return veiculoService.findById(codigo);
+	}
+	
+	@GetMapping("/balanco")
+	public List<VeiculoDto> listarBalanco() {
+		
+		List<VeiculoDto> veiculos = veiculoService.listarBalanco();
+		
+		return veiculos;
 	}
 	
 }

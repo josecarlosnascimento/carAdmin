@@ -184,14 +184,14 @@ INSERT INTO cliente (nome,cpf,data_nascimento,logradouro,numero,bairro,cep,cidad
 
 
 CREATE TABLE usuario(
-CODIGO SMALLINT AUTO_INCREMENT PRIMARY KEY,
+CODIGO INTEGER AUTO_INCREMENT PRIMARY KEY,
 NOME VARCHAR(100),
 EMAIL VARCHAR(150),
 SENHA VARCHAR (300)
 );
 
 CREATE TABLE permissao(
-CODIGO SMALLINT AUTO_INCREMENT PRIMARY KEY,
+CODIGO INTEGER AUTO_INCREMENT PRIMARY KEY,
 DESCRICAO VARCHAR(100)
 );
 
@@ -225,6 +225,7 @@ INSERT INTO marca (id, descricao) VALUES (5,'hyundai');
  
  INSERT INTO veiculo (marca, modelo, ano, cor, categoria, tipo, placa, chassi, status) VALUES (4, 'City', 2019, 6, 5, 2, 'HON-0001', 'AJJU7AY20PL2JDMNH', 1);
  
+ INSERT INTO despesa (descricao, data, valor, tipo, veiculo) VALUES ('Abastecimento', now(), 120, 2,1);
 commit;
 
 
