@@ -36,6 +36,12 @@ export class VeiculoService {
     return this.httpClient.get<any>(`${this.veiculoUrl}/${codigo}`).toPromise()
     .then(resposta => resposta)
   }
+
+  listarBalanc(): Promise<any>{
+    return this.httpClient.get<any>(`${this.veiculoUrl}/balanco`).toPromise()
+    .then(resposta => resposta)
+  }
+  
 }
 
 

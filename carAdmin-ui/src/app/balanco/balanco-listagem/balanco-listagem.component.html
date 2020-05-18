@@ -12,10 +12,6 @@
                             aria-describedby="example2_info">
                             <thead>
                                 <tr role="row">
-                                    <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1"
-                                        colspan="1" style="text-align:center"
-                                        aria-label="Rendering engine: activate to sort column descending"
-                                        aria-sort="ascending">Código</th>
                                     <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
                                     style="text-align:center"
                                         aria-label="Browser: activate to sort column ascending">Marca
@@ -43,141 +39,36 @@
                                         Ação</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody *ngFor = "let balanco of balancos">
                                 <tr role="row" class="odd">
-                                    <td class="sorting_1">963254</td>
-                                    <td>Fiat</td>
-                                    <td>Argo</td>
-                                    <td>ZXC-9999</td>
-                                    <td>
+                                    <td>{{balanco.marca}}</td>
+                                    <td>{{balanco.modelo}}</td>
+                                    <td>{{balanco.placa}}</td>
+                                    <td align="right">
                                         <span style="color: green;">
-                                            R$ 500,00
+                                            {{balanco.valorGanhos | currency:'BRL':true}}
                                         </span>
                                     </td>
-                                    <td>
+                                    <td align="right">
                                         <span style="color: red;">
-                                            R$ - 1.400,00
+                                           {{balanco.valorDespesas | currency:'BRL':true}}
                                         </span>
                                     </td>
                                     <td align="center">
                                             <i class="fa fa-info-circle" aria-hidden="true" title="Detalhes"
-                                                data-toggle="modal" data-target="#modal-default"
+                                                data-toggle="modal" data-target="#modal-default" (click)="listarDespesas(1, balanco.modelo, balanco.placa)"
                                                 style="cursor: pointer; margin: 0 5px">
                                             </i>
+                                            
 
                                             <i class="fa fa-file-pdf-o" aria-hidden="true" 
                                                 title="Extrair Relatório" style="cursor: pointer; margin: 0 5px">
                                             </i>
                                     </td>
                                 </tr>
-                                <tr role="row" class="even">
-                                    <td class="sorting_1">939371</td>
-                                    <td>Honda</td>
-                                    <td>CRV</td>
-                                    <td>ZXC-9999</td>
-                                    <td>
-                                        <span style="color: green;">
-                                            R$ 500,00
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <span style="color: red;">
-                                            R$ - 500,00
-                                        </span>
-                                    </td>
-                                    <td align="center">
-                                        <i class="fa fa-info-circle" aria-hidden="true" title="Detalhes"
-                                        data-toggle="modal" data-target="#modal-default"
-                                        style="cursor: pointer; margin: 0 5px">
-                                    </i>
-
-                                    <i class="fa fa-file-pdf-o" aria-hidden="true" 
-                                        title="Extrair Relatório" style="cursor: pointer; margin: 0 5px">
-                                    </i>
-                                    </td>
-                                </tr>
-                                <tr role="row" class="odd">
-                                    <td class="sorting_1">938355</td>
-                                    <td>Chevrolet</td>
-                                    <td>Onix</td>
-                                    <td>ZXC-9999</td>
-                                    <td>
-                                        <span style="color: green;">
-                                            R$ 500,00
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <span style="color: red;">
-                                            R$ - 500,00
-                                        </span>
-                                    </td>
-                                    <td align="center">
-                                        <i class="fa fa-info-circle" aria-hidden="true" title="Detalhes"
-                                        data-toggle="modal" data-target="#modal-default"
-                                        style="cursor: pointer; margin: 0 5px">
-                                    </i>
-
-                                    <i class="fa fa-file-pdf-o" aria-hidden="true" 
-                                        title="Extrair Relatório" style="cursor: pointer; margin: 0 5px">
-                                    </i>
-                                    </td>
-                                </tr>
-                                <tr role="row" class="even">
-                                    <td class="sorting_1">224488</td>
-                                    <td>Renault</td>
-                                    <td>Logan</td>
-                                    <td>ZXC-9999</td>
-                                    <td>
-                                        <span style="color: green;">
-                                            R$ 500,00
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <span style="color: red;">
-                                            R$ - 500,00
-                                        </span>
-                                    </td>
-                                    <td align="center">
-                                        <i class="fa fa-info-circle" aria-hidden="true" title="Detalhes"
-                                        data-toggle="modal" data-target="#modal-default"
-                                        style="cursor: pointer; margin: 0 5px">
-                                    </i>
-
-                                    <i class="fa fa-file-pdf-o" aria-hidden="true" 
-                                        title="Extrair Relatório" style="cursor: pointer; margin: 0 5px">
-                                    </i>
-                                    </td>
-                                </tr>
-                                <tr role="row" class="odd">
-                                    <td class="sorting_1">951144</td>
-                                    <td>Audi</td>
-                                    <td>R8</td>
-                                    <td>ZXC-9999</td>
-                                    <td>
-                                        <span style="color: green;">
-                                            R$ 500,00
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <span style="color: red;">
-                                            R$ - 500,00
-                                        </span>
-                                    </td>
-                                    <td align="center">
-                                        <i class="fa fa-info-circle" aria-hidden="true" title="Detalhes"
-                                        data-toggle="modal" data-target="#modal-default"
-                                        style="cursor: pointer; margin: 0 5px">
-                                    </i>
-
-                                    <i class="fa fa-file-pdf-o" aria-hidden="true" 
-                                        title="Extrair Relatório" style="cursor: pointer; margin: 0 5px">
-                                    </i>
-                                    </td>
-                                </tr>
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th style="text-align:center" rowspan="1" colspan="1">Código</th>
                                     <th style="text-align:center" rowspan="1" colspan="1">Marca</th>
                                     <th style="text-align:center" rowspan="1" colspan="1">Modelo</th>
                                     <th style="text-align:center" rowspan="1" colspan="1">Placa</th>
@@ -200,7 +91,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Argo - Placa: ZXC-9999</h4>
+                <h4 class="modal-title"><span style="font-weight: bold;">Modelo:</span>{{modelo}} <span style="font-weight: bold;">Placa:</span> {{placa}}</h4>
             </div>
             <div class="modal-body">
 
@@ -292,48 +183,29 @@
                                         Valor</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody *ngFor="let despesa of despesas">
                                 <tr role="row" class="odd">
-                                    <td>Troca de óleo</td>
-                                    <td>Revisão</td>
-                                    <td>05/05/219</td>
-                                    <td>
+                                    <td>{{despesa.descricao}}</td>
+                                    <td>{{despesa.tipo.descricao}}</td>
+                                    <td align="right">{{despesa.data | date: 'dd/MM/yyyy'}}</td>
+                                    <td align="right">
                                         <span style="color: red">
-                                            R$  - 500,00
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr role="row" class="even">
-                                    <td>Pintura de paralama</td>
-                                    <td>Funilaria</td>
-                                    <td>05/05/219</td>
-                                    <td>
-                                        <span style="color: red">
-                                            R$  - 800,00
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr role="row" class="odd">
-                                    <td>Combustivel</td>
-                                    <td>Outros</td>
-                                    <td>05/05/219</td>
-                                    <td>
-                                        <span style="color: red">
-                                            R$  - 100,00
+                                            {{despesa.valor | currency:'BRL':true}}
                                         </span>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                        <div class="pull-right;">
-                            <span style="color: red;">Total: R$ - 1.400,00</span>
+                        <div style="margin-right: 1%;">
+                            <span style="font-weight: bold;">Total:</span>
+                            <span style="color: red; float:right;font-weight: bold;">{{valorTotalDespesas | currency:'BRL':true}}</span>
                         </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Sair</button>
+                <button type="button" data-dismiss="modal" class="btn btn-primary">Sair</button>
             </div>
         </div>
     </div>
