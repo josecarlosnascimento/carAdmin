@@ -8,6 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CorService } from 'src/app/cor/cor.service';
 import { ActivatedRoute } from '@angular/router';
 import { DespesasService } from 'src/app/despesas/despesas.service';
+import { CombustivelService } from '../combustivel.service';
 
 @Component({
   selector: 'app-veiculos-cadastro',
@@ -23,6 +24,7 @@ export class VeiculosCadastroComponent implements OnInit {
   cores = [];
   despesas = [];
   listaStatus = [];
+  combustiveis = [];
   formulario: FormGroup;
 
 
@@ -34,7 +36,8 @@ export class VeiculosCadastroComponent implements OnInit {
               private toastr: ToastrService,
               private route: ActivatedRoute,
               private corService: CorService,
-              private despesasService: DespesasService) { }
+              private despesasService: DespesasService,
+              private combutivelService: CombustivelService) { }
 
   ngOnInit() {
     this.configurarFormulario();
@@ -43,7 +46,8 @@ export class VeiculosCadastroComponent implements OnInit {
     this.listarTipos();
     this.listarCores();
     this.listarStatus();
-
+    this.listarCombustiveis();
+    
     const codigoVeiculo= this.route.snapshot.params['codigo'];
 
     if(codigoVeiculo){
@@ -68,7 +72,6 @@ export class VeiculosCadastroComponent implements OnInit {
       this.formulario.get('cor').setValue(veiculo.cor.id);
       this.formulario.get('tipo').setValue(veiculo.tipo.id);
       this.formulario.get('categoria').setValue(veiculo.categoria.id);
-      console.log(this.formulario.value);
     });
   }
 
@@ -101,6 +104,12 @@ export class VeiculosCadastroComponent implements OnInit {
     })
   }
 
+  listarCombustiveis(){
+    this.combutivelService.listarCombustiveis().then(resultado => {
+      this.combustiveis = resultado;
+    })
+  }
+
   salvar(){
   
     return this.veiculoService.salvar(this.formulario.value).then(() => {
@@ -123,13 +132,13 @@ export class VeiculosCadastroComponent implements OnInit {
       }),
       modelo: [null, Validators.required],
       placa: [null, Validators.required],
-      ano: [null, Validators.required],
+      anoModelo: [null, Validators.required],
+      anoFabricacao: [null, Validators.required],
       cor: [null, Validators.required],
       categoria: [null, Validators.required],
       chassi: [null, Validators.required],
       tipo: [null, Validators.required],
-      status: [null, Validators.required],
-
+      combustivel: [null, Validators.required]
     });
 
   }

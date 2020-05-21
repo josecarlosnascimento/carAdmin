@@ -56,7 +56,7 @@
                                     </td>
                                     <td align="center">
                                             <i class="fa fa-info-circle" aria-hidden="true" title="Detalhes"
-                                                data-toggle="modal" data-target="#modal-default" (click)="listarDespesas(1, balanco.modelo, balanco.placa)"
+                                                data-toggle="modal" data-target="#modal-default" (click)="listarDespesas(balanco.idVeiculo, balanco.modelo, balanco.placa)"
                                                 style="cursor: pointer; margin: 0 5px">
                                             </i>
                                             
@@ -123,39 +123,22 @@
                                         Valor</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody  *ngFor="let locacao of locacoes">
                                 <tr role="row">
-                                    <td>Ivonildo</td>
-                                    <td>01/05/2019 a 01/06/2019</td>
-                                    <td>
+                                    <td>{{locacao.cliente.nome}}</td>
+                                    <td align="right">{{locacao.dataInicio | date: 'dd/MM/yyyy'}} - {{locacao.dataEntrega | date: 'dd/MM/yyyy'}}</td>
+                                    <td align="right">
                                         <span style="color: green">
-                                            R$ 500,00
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr role="row">
-                                    <td>Donavan</td>
-                                    <td>11/12/2019 a 01/01/2020</td>
-                                    <td>
-                                        <span style="color: green">
-                                            R$ 600,00
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr role="row">
-                                    <td>José Carlos</td>
-                                    <td>01/08/2019 a 11/10/2019</td>
-                                    <td>
-                                        <span style="color: green">
-                                            R$  900,00
+                                            {{locacao.valor | currency:'BRL':true}}
                                         </span>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                                <div class="pull-right;">
-                                    <span style="color: green;">Total: R$ 2.000,00</span>
-                                </div>
+                        <div style="margin-right: 1%; margin-left: 1%;">
+                            <span style="font-weight: bold;">Total:</span>
+                            <span style="color: green; float:right;font-weight: bold;">{{valorTotalLocacoes | currency:'BRL':true}}</span>
+                        </div>
                         </div>
                         <!-- /.tab-pane -->
                         <div class="tab-pane" id="tab_2">
@@ -164,11 +147,6 @@
                             aria-describedby="example2_info">
                             <thead>
                                 <tr role="row">
-                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
-                                        colspan="1" style="text-align:center"
-                                        aria-label="Engine version: activate to sort column ascending">
-                                        Descrição
-                                    </th>
                                     <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
                                         colspan="1" style="text-align:center"
                                         aria-label="CSS grade: activate to sort column ascending">
@@ -185,7 +163,6 @@
                             </thead>
                             <tbody *ngFor="let despesa of despesas">
                                 <tr role="row" class="odd">
-                                    <td>{{despesa.descricao}}</td>
                                     <td>{{despesa.tipo.descricao}}</td>
                                     <td align="right">{{despesa.data | date: 'dd/MM/yyyy'}}</td>
                                     <td align="right">
@@ -196,7 +173,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <div style="margin-right: 1%;">
+                        <div style="margin-right: 1%; margin-left: 1%;">
                             <span style="font-weight: bold;">Total:</span>
                             <span style="color: red; float:right;font-weight: bold;">{{valorTotalDespesas | currency:'BRL':true}}</span>
                         </div>

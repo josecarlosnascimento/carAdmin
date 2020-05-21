@@ -42,10 +42,29 @@
                             <input formControlName="placa" type="text" class="form-control">
                         </div>
                     </div>
-                    <div class="col-md-1">
+                    <div class="col-md-2">
                         <div class="form-group">
-                            <label>Ano:</label>
-                            <input formControlName="ano" type="text" class="form-control" maxlength="4">
+                            <label>Ano Modelo:</label>
+                            <input formControlName="anoModelo" type="text" class="form-control" maxlength="4">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>Ano Fabricação:</label>
+                            <input formControlName="anoFabricacao" type="text" class="form-control" maxlength="4">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>Combustivel:</label>
+                            <select formControlName="combustivel" name="combustivel" class="form-control select2" style="width: 100%;">
+                                <option selected="selected">-- Selecione --</option>
+                                <option *ngFor="let combustivel of combustiveis" [ngValue]="combustivel">
+                                    {{combustivel.descricao}}
+                                </option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -59,9 +78,6 @@
                             </select>
                         </div>
                     </div>
-
-                </div>
-                <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
                             <label>Chassi:</label>
@@ -87,18 +103,6 @@
                                 <option selected="selected">-- Selecione --</option>
                                 <option *ngFor="let categoria of categorias" [ngValue]="categoria">
                                     {{categoria.descricao}}
-                                </option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label>Status:</label>
-                            <select name="status" formControlName="status" class="form-control select2"
-                                style="width: 100%;">
-                                <option selected="selected">-- Selecione --</option>
-                                <option *ngFor="let status of listaStatus" [ngValue]="status">
-                                    {{status.descricao}}
                                 </option>
                             </select>
                         </div>

@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { LocacaoPesquisaComponent } from './locacao/locacao-pesquisa/locacao-pesquisa.component';
 import { BalancoListagemComponent } from './balanco/balanco-listagem/balanco-listagem.component';
 import { ClientesCadastroComponent } from './clientes/clientes-cadastro/clientes-cadastro.component';
+import { LocacaoCadastrarComponent } from './locacao/locacao-cadastrar/locacao-cadastrar.component';
 
 const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
@@ -15,6 +16,8 @@ const routes: Routes = [
   {path: 'balanco', component: BalancoListagemComponent},
 
   {path: 'clientes/novo', component: ClientesCadastroComponent},
+  {path: 'locacao/novo', component: LocacaoCadastrarComponent},
+
 
   {path: 'veiculos', loadChildren: () => import('./veiculos/veiculos.module').then(m => m.VeiculosModule)},
   {path: 'despesas', loadChildren: () => import('./despesas/despesas.module').then(m => m.DespesasModule)},

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VeiculoService } from 'src/app/veiculos/veiculo.service';
 import { DespesasService } from 'src/app/despesas/despesas.service';
+import { LocacaoService } from 'src/app/locacao/locacao-service';
 
 @Component({
   selector: 'app-balanco-listagem',
@@ -10,10 +11,13 @@ import { DespesasService } from 'src/app/despesas/despesas.service';
 export class BalancoListagemComponent implements OnInit {
 
   constructor(private despesasService: DespesasService,
-            private veiculoService: VeiculoService) { }
+              private veiculoService: VeiculoService,
+              private locacaoService: LocacaoService ) { }
   balancos = [];
   despesas = [];  
+  locacoes = [];
   valorTotalDespesas: number;
+  valorTotalLocacoes: number;
   modelo: String;
   placa: String;
 
@@ -36,6 +40,11 @@ export class BalancoListagemComponent implements OnInit {
       this.despesas = despesa;
       this.valorTotalDespesas = this.somarDespesas(this.despesas);
     });
+
+     this.locacaoService.listarLocacaoPorVeiculo(codigo).then(locacao => {
+      this.locacoes = locacao;
+      this.valorTotalLocacoes = this.somarValorLocacoes(this.locacoes);
+     } )
   }
 
 
@@ -51,4 +60,15 @@ export class BalancoListagemComponent implements OnInit {
 
   }
 
+  private somarValorLocacoes(locacao: any): number{
+
+    let valor: number = 0;
+
+    locacao.forEach(element => {
+      valor += Number(element.valor);
+    });
+
+    return valor;
+
+  }
 }

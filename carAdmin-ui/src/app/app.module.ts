@@ -27,6 +27,7 @@ import { SegurancaModule } from './seguranca/seguranca.module';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import {MatButtonModule} from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { LocacaoCadastrarComponent } from './locacao/locacao-cadastrar/locacao-cadastrar.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>)= null;;
 
@@ -46,6 +47,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>)= null;;
     BalancoListagemComponent,
     
     ClientesCadastroComponent,
+    LocacaoCadastrarComponent,
     CpfPipe,
 
   ],
