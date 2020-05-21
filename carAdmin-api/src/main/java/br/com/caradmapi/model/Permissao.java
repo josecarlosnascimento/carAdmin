@@ -1,5 +1,6 @@
 package br.com.caradmapi.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -9,6 +10,7 @@ import javax.persistence.Table;
 public class Permissao {
 	
 	@Id
+	@Column(name = "id_permissao")
 	private Integer codigo;
 	private String descricao;
 	public Integer getCodigo() {

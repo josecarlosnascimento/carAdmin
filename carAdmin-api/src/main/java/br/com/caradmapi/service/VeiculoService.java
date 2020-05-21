@@ -45,13 +45,14 @@ public class VeiculoService {
 		
 		for (Object balancoObj : balancos) {
 			Object[] balanco = (Object[]) balancoObj;
-			String modelo = (String) balanco[0];
-			String marca = (String) balanco[1];
-			String placa = (String) balanco[2];
-			Double valorDespesa = (Double) balanco[3];
-			Double valorGanho = (Double) balanco[4];
+			Integer idVeiculo = (Integer) balanco[0];
+			String modelo = (String) balanco[1];
+			String marca = (String) balanco[2];
+			String placa = (String) balanco[3];
+			Double valorDespesa = (Double) balanco[4];
+			Double valorGanho = (Double) balanco[5];
 			
-			listaBalancos.add(new VeiculoDto(modelo, marca, placa, BigDecimal.valueOf(valorGanho), BigDecimal.valueOf(valorDespesa)));
+			listaBalancos.add(new VeiculoDto(idVeiculo, modelo, marca, placa, BigDecimal.valueOf(valorGanho), BigDecimal.valueOf(valorDespesa)));
 		}
 		
 		

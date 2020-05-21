@@ -21,6 +21,7 @@ public class Despesa implements Serializable{
 	private static final long serialVersionUID = 8948155572779051077L;
 
 	@Id
+	@Column(name = "id_despesa")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
@@ -31,11 +32,11 @@ public class Despesa implements Serializable{
 	private double valor;
 	
 	@OneToOne
-	@JoinColumn(name="tipo")
+	@JoinColumn(name="tipo_id")
 	private TipoDespesa tipo;
 	
 	@ManyToOne
-	@JoinColumn(name="veiculo")
+	@JoinColumn(name="veiculo_id")
 	private Veiculo veiculo;
 
 	public Integer getId() {

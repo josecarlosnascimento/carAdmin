@@ -2,12 +2,14 @@ package br.com.caradmapi.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
 public class Veiculo implements Serializable {
@@ -18,11 +20,12 @@ public class Veiculo implements Serializable {
 	private static final long serialVersionUID = -4826501685224752250L;
 
 	@Id
+	@Column(name = "id_veiculo")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	@OneToOne
-	@JoinColumn(name = "marca")
+	@JoinColumn(name = "id_marca")
 	private Marca marca;
 	
 	private String modelo;
@@ -31,22 +34,28 @@ public class Veiculo implements Serializable {
 	
 	private String chassi; 
 	
-	private Integer ano;
+	private Integer anoFabricacao;
 	
+	private Integer anoModelo;
+
 	@OneToOne
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "id_cor")
 	private Cor cor;
 	
 	@OneToOne
-	@JoinColumn(name = "categoria")
+	@JoinColumn(name = "id_categoria")
 	private Categoria categoria;
 	
 	@OneToOne
-	@JoinColumn(name = "tipo")
+	@JoinColumn(name = "id_tipo")
 	private TipoVeiculo tipo;
 	
 	@OneToOne
-	@JoinColumn(name = "status")
+	@JoinColumn(name = "id_combustivel")
+	private TipoCombustivel tipoCombustivel;
+	
+	@OneToOne
+	@JoinColumn(name = "id_status")
 	private Status status;
 	
 	public Integer getId() {
@@ -89,12 +98,28 @@ public class Veiculo implements Serializable {
 		this.chassi = chassi;
 	}
 
-	public Integer getAno() {
-		return ano;
+	public Integer getAnoFabricacao() {
+		return anoFabricacao;
 	}
 
-	public void setAno(Integer ano) {
-		this.ano = ano;
+	public void setAnoFabricacao(Integer anoFabricacao) {
+		this.anoFabricacao = anoFabricacao;
+	}
+
+	public Integer getAnoModelo() {
+		return anoModelo;
+	}
+
+	public void setAnoModelo(Integer anoModelo) {
+		this.anoModelo = anoModelo;
+	}
+
+	public TipoCombustivel getTipoCombustivel() {
+		return tipoCombustivel;
+	}
+
+	public void setTipoCombustivel(TipoCombustivel tipoCombustivel) {
+		this.tipoCombustivel = tipoCombustivel;
 	}
 
 	public Cor getCor() {

@@ -31,8 +31,6 @@ public class VeiculoController {
 		
 		List<Veiculo> veiculos = veiculoService.listar();
 		
-		veiculoService.listarBalanco();
-		
 		return veiculos;
 	}
 	

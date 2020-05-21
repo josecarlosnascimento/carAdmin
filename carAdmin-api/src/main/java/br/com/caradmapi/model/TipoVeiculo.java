@@ -2,6 +2,7 @@ package br.com.caradmapi.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +13,7 @@ public class TipoVeiculo implements Serializable {
 	
 	
 	@Id
+	@Column(name = "id_tipo_veiculo")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	

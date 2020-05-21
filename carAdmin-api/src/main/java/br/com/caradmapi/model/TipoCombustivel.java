@@ -9,10 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Marca implements Serializable {
-
+public class TipoCombustivel implements Serializable {
+	
 	@Id
-	@Column(name = "id_marca")
+	@Column(name = "id_combustivel")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
@@ -34,6 +34,4 @@ public class Marca implements Serializable {
 		this.descricao = descricao;
 	}
 	
-	
-
 }

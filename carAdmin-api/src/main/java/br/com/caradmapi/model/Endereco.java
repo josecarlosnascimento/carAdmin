@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Embeddable;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.Fetch;
@@ -25,6 +26,7 @@ public class Endereco implements Serializable{
 	private String cidade;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_estado")
 	private Estado estado;
 
 	public String getLogradouro() {

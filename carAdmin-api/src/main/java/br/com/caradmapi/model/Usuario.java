@@ -2,6 +2,7 @@ package br.com.caradmapi.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -15,6 +16,7 @@ import javax.persistence.Table;
 public class Usuario {
 
 	@Id
+	@Column(name = "id_usuario")
 	private Integer codigo;
 	
 	private String nome;
@@ -22,8 +24,8 @@ public class Usuario {
 	private String senha;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name="usuario_permissao", joinColumns = @JoinColumn(name = "codigo_usuario")
-			, inverseJoinColumns = @JoinColumn(name = "codigo_permissao"))
+	@JoinTable(name="usuario_permissao", joinColumns = @JoinColumn(name = "id_usuario")
+			, inverseJoinColumns = @JoinColumn(name = "id_permissao"))
 	private List<Permissao> permissoes;
 
 	public Integer getCodigo() {
