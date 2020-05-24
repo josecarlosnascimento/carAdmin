@@ -9,3 +9,4 @@ foto BLOB
 INSERT INTO usuario (id_usuario, email, nome, senha) VALUES (1,'jcarlos.nascimento@outlook.com','José Carlos','$2a$10$tlFgE76lrbqPkkJOLv.MROJwK4sEFy6uoKDXfbI.RHZkSfs2DqZv2');
 INSERT INTO usuario (id_usuario, email, nome, senha) VALUES (2,'diego.ferreiradelima@gmail.com','Diego Ferreira de Lima','$2a$10$tlFgE76lrbqPkkJOLv.MROJwK4sEFy6uoKDXfbI.RHZkSfs2DqZv2');
 INSERT INTO usuario (id_usuario, email, nome, senha) VALUES (3,'santos.lucas00@hotmail.com','Lucas Santos Costa','$2a$10$tlFgE76lrbqPkkJOLv.MROJwK4sEFy6uoKDXfbI.RHZkSfs2DqZv2');
+INSERT INTO usuario (id_usuario, email, nome, senha) VALUES (4,'ivonildolopes.ti@gmail.com','Ivão da Massa','$2a$10$tlFgE76lrbqPkkJOLv.MROJwK4sEFy6uoKDXfbI.RHZkSfs2DqZv2');

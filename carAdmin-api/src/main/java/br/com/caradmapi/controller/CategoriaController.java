@@ -28,7 +28,7 @@ public class CategoriaController {
 	private CategoriaService categoriaService;
 
 	@GetMapping("/listarCategorias")
-	@PreAuthorize("hasAuthority('ROLE_ALL')")
+//	@PreAuthorize("hasAuthority('ROLE_ALL')")
 	public List<Categoria> listar(){
 		return categoriaService.listar();
 	}

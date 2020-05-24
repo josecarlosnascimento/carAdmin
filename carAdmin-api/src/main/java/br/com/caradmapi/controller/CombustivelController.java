@@ -12,8 +12,8 @@ import br.com.caradmapi.model.TipoCombustivel;
 import br.com.caradmapi.service.CombustivelService;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/combustivel")
+@CrossOrigin
 public class CombustivelController {
 
 	@Autowired

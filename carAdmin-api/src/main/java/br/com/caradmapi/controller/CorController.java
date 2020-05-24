@@ -21,7 +21,7 @@ public class CorController {
 	private CorService corService;
 	
 	@GetMapping("/listarCores")
-	@PreAuthorize("hasAuthority('ROLE_ALL')")
+//	@PreAuthorize("hasAuthority('ROLE_ALL')")
 	public List<Cor> findAll(){
 		return corService.listAll();
 	}
